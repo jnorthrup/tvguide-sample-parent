@@ -17,7 +17,17 @@
 		<gwt.style>OBF</gwt.style>
 		<gwt.draftCompile>false</gwt.draftCompile>
 	</properties>
-	<profiles>
+	<profiles>     		<profile>
+			<!-- Simplified a few of the default GWT compiler settings in an effort to speed up dev builds -->
+			<id>harsh</id>
+			<properties>
+				<gwt.style>OBF</gwt.style>
+				<gwt.draftCompile>false</gwt.draftCompile>
+				<gwt.compiler.strict>true</gwt.compiler.strict>
+				<gwt.compiler.optimizationLevel>9</gwt.compiler.optimizationLevel>
+				<gwt.compiler.soycDetailed>true</gwt.compiler.soycDetailed><gwt.compiler.soyc>true</gwt.compiler.soyc>
+			</properties>
+		</profile>
 		<profile>
 			<!-- Simplified a few of the default GWT compiler settings in an effort to speed up dev builds -->
 			<id>dev-build</id>

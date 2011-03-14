@@ -21,8 +21,6 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.RunAsyncCallback;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.shared.EventBus;
-import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -37,12 +35,6 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 public class TvGuide implements EntryPoint {
 
 	public void onModuleLoad() {
-
-		//code from jnorthrup's fork, will be moved to a presenter soon enough
-		EventBus eventBus = GWT.create(SimpleEventBus.class);
-		final TvGuideRequestFactory rf = GWT
-				.create(TvGuideRequestFactory.class);
-		rf.initialize(eventBus);
 
 		new DialogBox() {
 			{
@@ -72,11 +64,9 @@ public class TvGuide implements EntryPoint {
 								addClickHandler(new ClickHandler() {
 									@Override
 									public void onClick(ClickEvent event) {
-
 										GWT
 												.runAsync(new PrematureLoaderOptimization(
-														passwordTextBox, rf,
-														email,
+														passwordTextBox, email,
 														new RunAsyncCallback() {
 															@Override
 															public void onFailure(
