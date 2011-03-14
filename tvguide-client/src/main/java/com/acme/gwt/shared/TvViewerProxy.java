@@ -8,9 +8,6 @@ import com.acme.gwt.shared.defs.Geo;
 import com.google.gwt.requestfactory.shared.EntityProxy;
 import com.google.gwt.requestfactory.shared.EntityProxyId;
 import com.google.gwt.requestfactory.shared.ProxyFor;
-import com.google.gwt.requestfactory.shared.Request;
-import com.google.gwt.requestfactory.shared.RequestContext;
-import com.google.gwt.requestfactory.shared.Service;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,39 +18,35 @@ import com.google.gwt.requestfactory.shared.Service;
  */
 @ProxyFor(value = TvViewer.class, locator = InjectingLocator.class)
 public interface TvViewerProxy extends EntityProxy {
-	Long getId();
+  Long getId();
 
-	Integer getVersion();
+  Integer getVersion();
 
-	void setId(Long id);
+  void setId(Long id);
 
-	void setVersion(Integer version);
+  void setVersion(Integer version);
 
-	List<TvShowProxy> getFavorites();
+  List<TvShowProxy> getFavorites();
 
-	void setFavorites(List<TvShowProxy> favorites);
+  void setFavorites(List<TvShowProxy> favorites);
 
-	String getEmail();
+  String getEmail();
 
-	void setEmail(String email);
+  void setEmail(String email);
 
-	String getDigest();
+  String getDigest();
 
-	void setDigest(String digest);
+  void setDigest(String digest);
 
-	String getSalt();
+  String getSalt();
 
-	void setSalt(String salt);
+  void setSalt(String salt);
 
-	Geo getGeo();
+  Geo getGeo();
 
-	void setGeo(Geo geo);
+  void setGeo(Geo geo);
 
-	public EntityProxyId<TvViewerProxy> stableId();
+  public EntityProxyId<TvViewerProxy> stableId();
 
-	@Service(value = TvViewer.class)
-	public interface TvViewerRequest extends RequestContext {
-		//replace with controller
-		Request<TvViewerProxy> authenticate(String email, String digest);
-	}
 }
+

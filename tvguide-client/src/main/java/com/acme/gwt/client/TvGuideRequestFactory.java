@@ -16,10 +16,18 @@
  */
 package com.acme.gwt.client;
 
-import com.acme.gwt.shared.TvSetupRequest;
+import java.util.List;
+
+import com.acme.gwt.data.TvViewer;
+import com.acme.gwt.server.InjectingServiceLocator;
 import com.acme.gwt.shared.TvGuideRequest;
+import com.acme.gwt.shared.TvShowProxy;
 import com.acme.gwt.shared.TvViewerProxy;
+import com.google.gwt.requestfactory.shared.InstanceRequest;
+import com.google.gwt.requestfactory.shared.Request;
+import com.google.gwt.requestfactory.shared.RequestContext;
 import com.google.gwt.requestfactory.shared.RequestFactory;
+import com.google.gwt.requestfactory.shared.Service;
 
 /**
  * RequestFactory stub for the TvGuide server calls
@@ -27,9 +35,38 @@ import com.google.gwt.requestfactory.shared.RequestFactory;
  * @author colin
  */
 public interface TvGuideRequestFactory extends RequestFactory {
-	TvViewerProxy.TvViewerRequest makeLoginRequest();
+  AuthorizationRequest makeLoginRequest();
 
-	TvGuideRequest makeGuideRequest();
+  TvGuideRequest makeGuideRequest();
 
-	TvSetupRequest makeSetupRequest();
+  TvSetupRequest makeSetupRequest();
+
+  TvGuideRequest reqGuide();
+
+  @Service(value = TvViewer.class)
+  interface AuthorizationRequest extends RequestContext {
+    //replace with controller
+    Request<TvViewerProxy> authenticate(String email, String digest);
+
+    @Service(value = TvViewer.Favorites.class,
+        locator = InjectingServiceLocator.class)
+    interface Favorites {
+      InstanceRequest<TvViewerProxy, List<TvShowProxy>> call();
+    }
+  }
+
+  /**
+   * This RequestContext will be used to inform the server about how a particular locale is set up.
+   * This will probably not be used by most users, and it is possible that we want to deny access to
+   * this for certain types of users (i.e. users who are not logged in, or are not admins).
+   *
+   * @author colin
+   * @todo No methods yet, I am assuming we will get to this
+   */
+  @Service(TvSetupRequest.SetupReqImpl.class)
+  interface TvSetupRequest extends RequestContext {
+
+    public class SetupReqImpl {
+    }
+  }
 }

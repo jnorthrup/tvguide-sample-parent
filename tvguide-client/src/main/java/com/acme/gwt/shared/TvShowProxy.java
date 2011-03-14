@@ -20,12 +20,9 @@ import java.util.List;
 
 import com.acme.gwt.data.TvShow;
 import com.acme.gwt.server.InjectingLocator;
-import com.acme.gwt.server.InjectingServiceLocator;
 import com.google.gwt.requestfactory.shared.EntityProxy;
 import com.google.gwt.requestfactory.shared.EntityProxyId;
 import com.google.gwt.requestfactory.shared.ProxyFor;
-import com.google.gwt.requestfactory.shared.RequestContext;
-import com.google.gwt.requestfactory.shared.Service;
 
 /**
  * First draft at representing an entire show. Does not drag the full list of episodes and seasons
@@ -37,30 +34,26 @@ import com.google.gwt.requestfactory.shared.Service;
 
 @ProxyFor(value = TvShow.class, locator = InjectingLocator.class)
 public interface TvShowProxy extends EntityProxy {
-	Long getId();
+  Long getId();
 
-	Integer getVersion();
+  Integer getVersion();
 
-	void setId(Long id);
+  void setId(Long id);
 
-	void setVersion(Integer version);
+  void setVersion(Integer version);
 
-	String getName();
+  String getName();
 
-	void setName(String name);
+  void setName(String name);
 
-	String getDescription();
+  String getDescription();
 
-	void setDescription(String description);
+  void setDescription(String description);
 
-	List<TvEpisodeProxy> getEpisodes();
+  List<TvEpisodeProxy> getEpisodes();
 
-	public EntityProxyId<TvShowProxy> stableId();
+  public EntityProxyId<TvShowProxy> stableId();
 
-	void setEpisodes(List<TvEpisodeProxy> episodes);
+  void setEpisodes(List<TvEpisodeProxy> episodes);
 
-	@Service(value = TvShow.class, locator = InjectingServiceLocator.class)
-	public interface TvShowRequest extends RequestContext {
-
-	}
 }
