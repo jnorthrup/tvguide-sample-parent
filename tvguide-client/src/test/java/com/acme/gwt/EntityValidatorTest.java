@@ -18,11 +18,8 @@ package com.acme.gwt;
 
 import java.util.logging.Logger;
 
-import com.acme.gwt.shared.TvChannelProxy.TvChannelRequest;
+import com.acme.gwt.client.TvGuideRequestFactory;
 import com.acme.gwt.shared.TvGuideRequest;
-import com.acme.gwt.shared.TvSetupRequest;
-import com.acme.gwt.shared.TvShowProxy.TvShowRequest;
-import com.acme.gwt.shared.TvViewerProxy.TvViewerRequest;
 import com.google.gwt.requestfactory.server.RequestFactoryInterfaceValidator;
 import com.google.gwt.requestfactory.server.RequestFactoryInterfaceValidator.ClassLoaderLoader;
 import com.google.gwt.requestfactory.shared.RequestContext;
@@ -45,23 +42,23 @@ public class EntityValidatorTest {
 
 	@Test
 	public void verifySetupRequestAndEntities() {
-		assertIsValidRequestContext(TvSetupRequest.class);
+		assertIsValidRequestContext(TvGuideRequestFactory.TvSetupRequest.class);
 	}
 
 	@Test
 	public void verifyTvViewerRequestAndEntities() {
-		assertIsValidRequestContext(TvViewerRequest.class);
+		assertIsValidRequestContext(TvGuideRequestFactory.AuthorizationRequest.class);
 	}
 
-	@Test
-	public void verifyTvShowRequestAndEntities() {
-		assertIsValidRequestContext(TvShowRequest.class);
-	}
+	//  @Test
+	//  public void verifyTvShowRequestAndEntities() {
+	//    assertIsValidRequestContext(TvShowRequest.class);
+	//  }
 
-	@Test
-	public void verifyTvChannelRequestAndEntities() {
-		assertIsValidRequestContext(TvChannelRequest.class);
-	}
+	//  @Test
+	//  public void verifyTvChannelRequestAndEntities() {
+	//    assertIsValidRequestContext(TvChannelRequest.class);
+	//  }
 
 	private void assertIsValidRequestContext(
 			Class<? extends RequestContext> clazz) {

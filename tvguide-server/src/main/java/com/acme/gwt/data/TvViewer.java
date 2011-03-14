@@ -2,7 +2,7 @@ package com.acme.gwt.data;
 
 import java.util.LinkedList;
 import java.util.List;
-
+import java.util.concurrent.Callable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,7 +26,7 @@ import com.google.inject.Provider;
  * Due to details in how this type is injected when code asks for the current user, this cannot
  * be created by calling injector.getInstance(TvViewer.class), but must be constructed the old
  * fashioned way. A 'create profile' method or the like would be the appropriate place to do this.
- * 
+ * <p/>
  * Created by IntelliJ IDEA.
  * User: jim
  * Date: 3/10/11
@@ -147,5 +147,15 @@ public class TvViewer implements HasVersionAndId {
 		} finally {
 		}
 		return singleResult;
+	}
+
+	public class Favorites implements Callable<List<TvShow>> {
+		@Inject
+		TvViewer tvViewer;
+
+		@Override
+		public List<TvShow> call() throws Exception {
+			return tvViewer.getFavorites();
+		}
 	}
 }

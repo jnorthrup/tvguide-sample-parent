@@ -20,12 +20,9 @@ import java.util.List;
 
 import com.acme.gwt.data.TvShow;
 import com.acme.gwt.server.InjectingLocator;
-import com.acme.gwt.server.InjectingServiceLocator;
 import com.google.gwt.requestfactory.shared.EntityProxy;
 import com.google.gwt.requestfactory.shared.EntityProxyId;
 import com.google.gwt.requestfactory.shared.ProxyFor;
-import com.google.gwt.requestfactory.shared.RequestContext;
-import com.google.gwt.requestfactory.shared.Service;
 
 /**
  * First draft at representing an entire show. Does not drag the full list of episodes and seasons
@@ -59,8 +56,4 @@ public interface TvShowProxy extends EntityProxy {
 
 	void setEpisodes(List<TvEpisodeProxy> episodes);
 
-	@Service(value = TvShow.class, locator = InjectingServiceLocator.class)
-	public interface TvShowRequest extends RequestContext {
-
-	}
 }

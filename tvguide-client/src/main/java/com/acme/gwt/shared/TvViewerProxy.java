@@ -8,9 +8,6 @@ import com.acme.gwt.shared.defs.Geo;
 import com.google.gwt.requestfactory.shared.EntityProxy;
 import com.google.gwt.requestfactory.shared.EntityProxyId;
 import com.google.gwt.requestfactory.shared.ProxyFor;
-import com.google.gwt.requestfactory.shared.Request;
-import com.google.gwt.requestfactory.shared.RequestContext;
-import com.google.gwt.requestfactory.shared.Service;
 
 /**
  * Created by IntelliJ IDEA.
@@ -51,9 +48,4 @@ public interface TvViewerProxy extends EntityProxy {
 
 	public EntityProxyId<TvViewerProxy> stableId();
 
-	@Service(value = TvViewer.class)
-	public interface TvViewerRequest extends RequestContext {
-		//replace with controller
-		Request<TvViewerProxy> authenticate(String email, String digest);
-	}
 }

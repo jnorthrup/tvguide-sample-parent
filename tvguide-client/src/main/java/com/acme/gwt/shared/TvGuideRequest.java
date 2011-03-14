@@ -35,13 +35,6 @@ import com.google.gwt.requestfactory.shared.Service;
 public interface TvGuideRequest extends RequestContext {
 
 	/**
-	 * Gets the list of shows the user has marked as favorite.
-	 *
-	 * @return
-	 */
-	Request<List<TvShowProxy>> getFavoriteShows();
-
-	/**
 	 * Informs the server that the list of favorites has changed.
 	 *
 	 * @param tvShows
