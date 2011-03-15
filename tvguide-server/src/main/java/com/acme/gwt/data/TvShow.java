@@ -74,4 +74,6 @@ public class TvShow implements HasIdAndVersion {
 	public void setEpisodes(List<TvEpisode> episodes) {
 		this.episodes = episodes;
 	}
+
+
 }

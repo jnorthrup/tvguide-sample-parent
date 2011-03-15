@@ -16,6 +16,7 @@
  */
 package com.acme.gwt.shared;
 
+import com.acme.gwt.data.StaticLocator;
 import com.acme.gwt.data.TvScheduledEpisode;
 import com.acme.gwt.server.InjectingLocator;
 import com.google.gwt.requestfactory.shared.EntityProxy;
@@ -46,4 +47,14 @@ interface TvScheduledEpisodeProxy extends EntityProxy {
 	void setBlock(TvAirTimeProxy block);
 
 	public EntityProxyId<TvScheduledEpisodeProxy> stableId();
+
+  /**
+   * Created by IntelliJ IDEA.
+   * User: jim
+   * Date: 3/15/11
+   * Time: 12:54 AM
+   * To change this template use File | Settings | File Templates.
+   */
+  class ScheduledEpisodeCursor extends StaticLocator<TvScheduledEpisode> {
+  }
 }

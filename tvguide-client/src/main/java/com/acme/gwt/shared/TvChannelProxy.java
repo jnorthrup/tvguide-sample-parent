@@ -16,6 +16,7 @@
  */
 package com.acme.gwt.shared;
 
+import com.acme.gwt.data.StaticLocator;
 import com.acme.gwt.data.TvChannel;
 import com.acme.gwt.server.InjectingLocator;
 import com.google.gwt.requestfactory.shared.EntityProxy;
@@ -49,4 +50,13 @@ interface TvChannelProxy extends EntityProxy {
 
 	public EntityProxyId<TvChannelProxy> stableId();
 
+  /**
+   * Created by IntelliJ IDEA.
+   * User: jim
+   * Date: 3/15/11
+   * Time: 12:55 AM
+   * To change this template use File | Settings | File Templates.
+   */
+  class ChannelCursor extends StaticLocator<TvChannel> {
+  }
 }

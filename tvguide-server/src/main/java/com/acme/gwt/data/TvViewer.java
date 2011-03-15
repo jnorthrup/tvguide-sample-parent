@@ -2,7 +2,6 @@ package com.acme.gwt.data;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.Callable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +20,6 @@ import com.acme.gwt.server.AuthenticatedViewerProvider;
 import com.acme.gwt.shared.defs.Geo;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-import com.google.inject.persist.Transactional;
 
 /**
  * Due to details in how this type is injected when code asks for the current user, this cannot
@@ -118,17 +116,6 @@ public class TvViewer implements HasIdAndVersion {
   @Inject
   static Provider<AuthenticatedViewerProvider> currentUserProvider;
 
-  public static TvViewer authenticate(String email, String digest) {
-    TvViewer user = null;
-    try {
-      user = findTvViewerByEmailAndDigest(email, digest);
-      String email1 = user.getEmail();//throw NPE here if possible
-      currentUserProvider.get().setCurrentViewer(user);
-      return user;
-    } catch (Throwable e) {
-      throw new RuntimeException("Failed login attempt.");
-    }
-  }
 
   // todo: @Finder (namedQuery = SIMPLE_AUTH)static TvViewer findTvViewerByEmailAndDigest(String email,String digest){}
 
@@ -150,57 +137,6 @@ public class TvViewer implements HasIdAndVersion {
     return singleResult;
   }
 
-  static public class Favorites implements Callable<List<TvShow>> {
-    @Inject
-    TvViewer tvViewer;
-
-    @Override
-    public List<TvShow> call() throws Exception {
-      return tvViewer.getFavorites();
-    }
-  }
-
-  static public class Merge implements Callable<TvViewer> {
-    @Inject
-    TvViewer tvViewer;
-    @Inject
-    EntityManager em;
-
-    @Override
-    @Transactional
-    public TvViewer call() throws Exception {
-      TvViewer merge = em.merge(tvViewer);
-      em.flush();
-      return merge;
-    }
-  }
-
-  public class Persist implements Runnable {
-    @Inject
-    TvViewer tvViewer;
-
-    @Inject
-    EntityManager em;
-
-    @Override
-    @Transactional
-    public void run() {
-      em.persist(tvViewer);
-    }
-  }
-
-  public class Remove implements Runnable {
-    @Inject
-    TvViewer tvViewer;
-
-    @Inject
-    EntityManager em;
-
-    @Override
-    @Transactional
-    public void run() {
-      em.remove(tvViewer);
-    }
-  }
 
 }
+

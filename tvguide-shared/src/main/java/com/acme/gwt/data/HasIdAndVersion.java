@@ -21,8 +21,6 @@ package com.acme.gwt.data;
  *
  * @author colin
  */
-public interface HasIdAndVersion {
-	Long getId();
+public interface HasIdAndVersion extends HasId<Long>,HasVersion<Integer> {
 
-	Integer getVersion();
 }

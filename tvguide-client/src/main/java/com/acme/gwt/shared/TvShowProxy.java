@@ -18,6 +18,7 @@ package com.acme.gwt.shared;
 
 import java.util.List;
 
+import com.acme.gwt.data.StaticLocator;
 import com.acme.gwt.data.TvShow;
 import com.acme.gwt.server.InjectingLocator;
 import com.google.gwt.requestfactory.shared.EntityProxy;
@@ -56,4 +57,13 @@ public interface TvShowProxy extends EntityProxy {
 
 	void setEpisodes(List<TvEpisodeProxy> episodes);
 
+  /**
+   * Created by IntelliJ IDEA.
+   * User: jim
+   * Date: 3/15/11
+   * Time: 12:55 AM
+   * To change this template use File | Settings | File Templates.
+   */
+  class ShowCursor extends StaticLocator<TvShow> {
+  }
 }

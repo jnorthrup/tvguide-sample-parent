@@ -18,6 +18,7 @@ package com.acme.gwt.shared;
 
 import java.util.List;
 
+import com.acme.gwt.data.StaticLocator;
 import com.acme.gwt.data.TvEpisode;
 import com.acme.gwt.server.InjectingLocator;
 import com.acme.gwt.server.InjectingServiceLocator;
@@ -74,4 +75,14 @@ interface TvEpisodeProxy extends EntityProxy {
 		//InstanceRequest<TvEpisodeProxy, List<TvScheduledEpisodeProxy>> findEpisodesInRange(Date startDate, Date endDate);
 
 	}
+
+  /**
+   * Created by IntelliJ IDEA.
+   * User: jim
+   * Date: 3/15/11
+   * Time: 12:55 AM
+   * To change this template use File | Settings | File Templates.
+   */
+  class EpisodeCursor extends StaticLocator<TvEpisode> {
+  }
 }
