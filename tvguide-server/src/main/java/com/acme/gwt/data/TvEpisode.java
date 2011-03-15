@@ -19,7 +19,7 @@ import javax.persistence.Version;
  * To change this template use File | Settings | File Templates.
  */
 public @Entity
-class TvEpisode implements HasVersionAndId {
+class TvEpisode implements HasIdAndVersion {
 
 	private Long id;
 

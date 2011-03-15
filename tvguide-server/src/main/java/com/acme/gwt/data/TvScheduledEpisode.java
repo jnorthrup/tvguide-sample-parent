@@ -17,7 +17,7 @@ import javax.persistence.Version;
  * To change this template use File | Settings | File Templates.
  */
 public @Entity
-class TvScheduledEpisode implements HasVersionAndId {
+class TvScheduledEpisode implements HasIdAndVersion {
 
 	private Long id;
 

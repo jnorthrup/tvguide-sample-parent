@@ -26,7 +26,7 @@ import com.acme.gwt.client.widget.WelcomeWidget;
 import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.event.shared.EventBus;
-import com.google.gwt.event.shared.SimpleEventBus;
+import com.google.gwt.event.shared.ResettableEventBus;
 import com.google.gwt.inject.client.AbstractGinModule;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceController;
@@ -41,7 +41,7 @@ import com.google.inject.Singleton;
 public class TvGuideClientModule extends AbstractGinModule {
 	@Override
 	protected void configure() {
-		bind(EventBus.class).to(SimpleEventBus.class).in(Singleton.class);
+		bind(EventBus.class).to(ResettableEventBus.class).in(Singleton.class);
 
 		bind(TvGuideRequestFactory.class).in(Singleton.class);
 

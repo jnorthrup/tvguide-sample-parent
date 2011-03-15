@@ -6,7 +6,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 
 /**
- * all the crap that needs big java imports begins polluting the heap here.
+ * all the crap that needs big java imports begins polluting the footprint here.
  * <p/>
  * Created by IntelliJ IDEA.
  * User: jim

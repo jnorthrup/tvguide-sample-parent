@@ -18,7 +18,7 @@ package com.acme.gwt.server;
 
 import javax.persistence.EntityManager;
 
-import com.acme.gwt.data.HasVersionAndId;
+import com.acme.gwt.data.HasIdAndVersion;
 import com.google.gwt.requestfactory.shared.Locator;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -30,7 +30,7 @@ import com.google.inject.Provider;
  *
  * @author colin
  */
-public class InjectingLocator<T extends HasVersionAndId>
+public class InjectingLocator<T extends HasIdAndVersion>
 		extends
 			Locator<T, Long> {
 	@Inject

@@ -21,6 +21,7 @@ import com.google.gwt.user.client.ui.TextBox;
 class PrematureLoaderOptimization implements RunAsyncCallback {
 	EventBus eventBus = GWT.create(SimpleEventBus.class);
 	final TvGuideRequestFactory rf = GWT.create(TvGuideRequestFactory.class);
+
 	{
 		rf.initialize(eventBus);
 	}
@@ -31,9 +32,9 @@ class PrematureLoaderOptimization implements RunAsyncCallback {
 
 	public PrematureLoaderOptimization(PasswordTextBox passwordTextBox,
 			TextBox email, RunAsyncCallback runAsyncCallback) {
-		this.passwordTextBox = passwordTextBox;
+		this.successCallback = runAsyncCallback;//closes dialog box.
+		this.passwordTextBox = passwordTextBox;//brings in the very large md5 lib
 		this.email = email;
-		this.successCallback = runAsyncCallback;
 	}
 
 	@Override

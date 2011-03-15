@@ -23,7 +23,7 @@ import com.acme.gwt.shared.defs.Geo;
  * To change this template use File | Settings | File Templates.
  */
 public @Entity
-class TvChannel implements HasVersionAndId {
+class TvChannel implements HasIdAndVersion {
 
 	private Long id;
 

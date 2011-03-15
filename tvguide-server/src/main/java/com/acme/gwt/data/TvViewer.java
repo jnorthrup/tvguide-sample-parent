@@ -35,7 +35,7 @@ import com.google.inject.Provider;
  */
 @Entity
 //@NamedQuery(name = TvViewer.SIMPLE_AUTH, query = "select vp from TvViewer vp where vp.email=:email and vp.digest=:digest")
-public class TvViewer implements HasVersionAndId {
+public class TvViewer implements HasIdAndVersion {
 
 	static final String SIMPLE_AUTH = "simpleAuth";
 	private Long id;
