@@ -35,37 +35,56 @@ import com.google.gwt.requestfactory.shared.Service;
  * @author colin
  */
 public interface TvGuideRequestFactory extends RequestFactory {
-	AuthorizationRequest makeLoginRequest();
+  AuthorizationRequest makeLoginRequest();
 
-	TvGuideRequest makeGuideRequest();
+  TvGuideRequest makeGuideRequest();
 
-	TvSetupRequest makeSetupRequest();
+  TvSetupRequest makeSetupRequest();
 
-	TvGuideRequest reqGuide();
+  TvGuideRequest reqGuide();
 
-	@Service(value = TvViewer.class)
-	interface AuthorizationRequest extends RequestContext {
-		//replace with controller
-		Request<TvViewerProxy> authenticate(String email, String digest);
+  @Service(value = TvViewer.class)
+  interface AuthorizationRequest extends RequestContext {
+    //replace with controller
+    Request<TvViewerProxy> authenticate(String email, String digest);
 
-		@Service(value = TvViewer.Favorites.class, locator = InjectingServiceLocator.class)
-		interface Favorites {
-			InstanceRequest<TvViewerProxy, List<TvShowProxy>> call();
-		}
-	}
+    @Service(value = TvViewer.Favorites.class, locator = InjectingServiceLocator.class)
+    interface Favorites {
+      InstanceRequest<TvViewerProxy, List<TvShowProxy>> call();
+    }
 
-	/**
-	 * This RequestContext will be used to inform the server about how a particular locale is set up.
-	 * This will probably not be used by most users, and it is possible that we want to deny access to
-	 * this for certain types of users (i.e. users who are not logged in, or are not admins).
-	 *
-	 * @author colin
-	 * @todo No methods yet, I am assuming we will get to this
-	 */
-	@Service(TvSetupRequest.SetupReqImpl.class)
-	interface TvSetupRequest extends RequestContext {
+    @Service(value = TvViewer.Merge.class, locator = InjectingServiceLocator.class)
+    interface Merge {
+      InstanceRequest<TvViewerProxy, TvViewerProxy> call();
+    }
 
-		public class SetupReqImpl {
-		}
-	}
+    @Service(value = TvViewer.Persist.class,
+        locator = InjectingServiceLocator
+            .class)
+    interface Persist {
+      InstanceRequest<TvViewerProxy, Void> run();
+    }
+
+    @Service(value = TvViewer.Remove.class,
+        locator = InjectingServiceLocator
+            .class)
+    interface Remove {
+      InstanceRequest<TvViewerProxy, Void> run();
+    }
+  }
+
+  /**
+   * This RequestContext will be used to inform the server about how a particular locale is set up.
+   * This will probably not be used by most users, and it is possible that we want to deny access to
+   * this for certain types of users (i.e. users who are not logged in, or are not admins).
+   *
+   * @author colin
+   * @todo No methods yet, I am assuming we will get to this
+   */
+  @Service(TvSetupRequest.SetupReqImpl.class)
+  interface TvSetupRequest extends RequestContext {
+
+    public class SetupReqImpl {
+    }
+  }
 }
