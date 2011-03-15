@@ -167,7 +167,6 @@ public class TvViewer implements HasIdAndVersion {
     EntityManager em;
 
     @Override
-
     @Transactional
     public TvViewer call() throws Exception {
       TvViewer merge = em.merge(tvViewer);

@@ -35,7 +35,20 @@ import com.google.gwt.requestfactory.shared.Service;
  * @author colin
  */
 public interface TvGuideRequestFactory extends RequestFactory {
-  AuthorizationRequest makeLoginRequest();
+
+  /**
+   * fetches viewer and list, etc.  to populate Editor<TvViewer> as needed.
+   *
+   * @return
+   */
+  TvViewerRequest makeViewerRequest();
+
+  /**
+   * saves favorites when modified, or other state that gets changed in Editor
+   *
+   * @return
+   */
+  TvViewerRequest.Persist persistViewer();
 
   TvGuideRequest makeGuideRequest();
 
@@ -44,30 +57,28 @@ public interface TvGuideRequestFactory extends RequestFactory {
   TvGuideRequest reqGuide();
 
   @Service(value = TvViewer.class)
-  interface AuthorizationRequest extends RequestContext {
+  interface TvViewerRequest extends RequestContext {
+    @Service(value = TvViewer.Persist.class, locator = InjectingServiceLocator.class)
+    interface Persist {
+      InstanceRequest<TvViewerProxy, Void> run();
+    }
+
     //replace with controller
     Request<TvViewerProxy> authenticate(String email, String digest);
 
     @Service(value = TvViewer.Favorites.class, locator = InjectingServiceLocator.class)
     interface Favorites {
       InstanceRequest<TvViewerProxy, List<TvShowProxy>> call();
+
     }
 
     @Service(value = TvViewer.Merge.class, locator = InjectingServiceLocator.class)
     interface Merge {
       InstanceRequest<TvViewerProxy, TvViewerProxy> call();
+
     }
 
-    @Service(value = TvViewer.Persist.class,
-        locator = InjectingServiceLocator
-            .class)
-    interface Persist {
-      InstanceRequest<TvViewerProxy, Void> run();
-    }
-
-    @Service(value = TvViewer.Remove.class,
-        locator = InjectingServiceLocator
-            .class)
+    @Service(value = TvViewer.Remove.class, locator = InjectingServiceLocator.class)
     interface Remove {
       InstanceRequest<TvViewerProxy, Void> run();
     }
