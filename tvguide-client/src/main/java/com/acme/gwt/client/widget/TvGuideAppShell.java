@@ -42,9 +42,13 @@ public class TvGuideAppShell extends Composite implements HasOneWidget {
 
 	@UiField
 	LayoutPanel display;
+	
+	@UiField(provided=true)
+	final TvGuideLogHandlerWidget tvGuideLogHandlerWidget;
 
 	@Inject
-	public TvGuideAppShell(ActivityManager activityManager, TvViewerProxy user) {
+	public TvGuideAppShell(ActivityManager activityManager, TvViewerProxy user, TvGuideLogHandlerWidget tvGuideLogHandlerWidget) {
+		this.tvGuideLogHandlerWidget = tvGuideLogHandlerWidget;
 		initWidget(uiBinder.createAndBindUi(this));
 
 		activityManager.setDisplay(this);

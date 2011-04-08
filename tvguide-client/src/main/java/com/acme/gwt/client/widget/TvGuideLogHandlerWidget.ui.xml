@@ -1,0 +1,13 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.important {
+			font-weight: bold;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		GWT Logging Output - emulates java.util.logging (TODO, improve LnF)
+		<g:VerticalPanel ui:field="verticalPanel"/>
+	</g:HTMLPanel>
+</ui:UiBinder> 
