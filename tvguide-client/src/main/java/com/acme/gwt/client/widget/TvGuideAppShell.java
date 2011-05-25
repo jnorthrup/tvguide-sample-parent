@@ -33,6 +33,18 @@ import com.google.gwt.user.client.ui.MenuItem;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+    import com.acme.gwt.shared.TvViewerProxy;
+import com.google.gwt.activity.shared.ActivityManager;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HasOneWidget;
+import com.google.gwt.user.client.ui.IsWidget;
+import com.google.gwt.user.client.ui.LayoutPanel;
+import com.google.gwt.user.client.ui.Widget;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
 /**
  * Visual wrapper for the rest of the running app. 
@@ -52,9 +64,14 @@ public class TvGuideAppShell extends Composite implements HasOneWidget {
 	
 	@UiField
 	MenuItem profileMenuItem, logoutMenuItem, aboutMenuItem, helpMenuItem;
-	
+
+
+	   	@UiField(provided=true)
+	final TvGuideLogHandlerWidget tvGuideLogHandlerWidget;
+
 	@Inject
-	public TvGuideAppShell(ActivityManager activityManager, TvViewerProxy user) {
+	public TvGuideAppShell(ActivityManager activityManager, TvViewerProxy user, TvGuideLogHandlerWidget tvGuideLogHandlerWidget) {
+		this.tvGuideLogHandlerWidget = tvGuideLogHandlerWidget;
 		initWidget(uiBinder.createAndBindUi(this));
 		activityManager.setDisplay(this);
 		//set all the menuItem Commands.. do stuff when they are clicked.

@@ -16,6 +16,9 @@
  */
 package com.acme.gwt.client.presenter;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import com.acme.gwt.client.place.ShowDetailPlace;
 import com.acme.gwt.client.place.WelcomePlace;
 import com.google.gwt.activity.shared.Activity;
@@ -27,10 +30,14 @@ import com.google.inject.Inject;
  * @author colin
  */
 public class TvGuideActivityMapper implements ActivityMapper {
+	
+	private static final Logger logger = Logger.getLogger(TvGuideActivityMapper.class.getName());
+	
 	@Inject
 	ActivityFactory factory;
-
+	
 	public Activity getActivity(Place place) {
+		logger.log(Level.INFO, "Activity requested for place of type "+place.getClass().getName());
 		if (place instanceof WelcomePlace) {
 			return factory.createWelcomePresenter((WelcomePlace) place);
 		}

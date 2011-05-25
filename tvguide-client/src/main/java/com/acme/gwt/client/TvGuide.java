@@ -16,6 +16,9 @@
  */
 package com.acme.gwt.client;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import com.acme.gwt.client.ioc.TvGuideGinjector;
 import com.acme.gwt.client.presenter.LoginPresenter;
 import com.acme.gwt.client.view.LoginView;
@@ -24,6 +27,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.core.client.Scheduler.ScheduledCommand;
 import com.google.gwt.inject.client.AsyncProvider;
+import com.google.gwt.logging.client.DevelopmentModeLogHandler;
 import com.google.gwt.user.client.AsyncProxy;
 import com.google.gwt.user.client.AsyncProxy.ConcreteType;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -38,6 +42,9 @@ import com.google.inject.Provider;
  * @author colin
  */
 public class TvGuide implements EntryPoint {
+	
+	private static final Logger logger = Logger.getLogger(TvGuide.class.getName());
+	
 	@Inject
 	AsyncProvider<TvGuideApp> appProvider;
 	@Inject
@@ -58,6 +65,8 @@ public class TvGuide implements EntryPoint {
 	}
 
 	public void onModuleLoad() {
+		Logger.getLogger("").addHandler(new DevelopmentModeLogHandler());
+		logger.log(Level.INFO,"onModuleLoad() has been invoked");
 		final TvGuideGinjector injector = GWT.create(TvGuideGinjector.class);
 		injector.inject(this);
 
