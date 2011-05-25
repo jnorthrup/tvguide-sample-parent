@@ -27,7 +27,6 @@ import com.acme.gwt.shared.TvGuideRequest;
 import com.acme.gwt.shared.TvSetupRequest;
 import com.acme.gwt.shared.TvShowProxy.TvShowRequest;
 import com.acme.gwt.shared.TvViewerProxy.TvViewerRequest;
-import com.google.web.bindery.requestfactory.server.RequestFactoryInterfaceValidator;
 import com.google.web.bindery.requestfactory.server.RequestFactoryInterfaceValidator.ClassLoaderLoader;
 import com.google.web.bindery.requestfactory.shared.RequestContext;
 
@@ -66,10 +65,10 @@ public class EntityValidatorTest {
 
 	private void assertIsValidRequestContext(
 			Class<? extends RequestContext> clazz) {
-		Logger logger = Logger.getLogger("");
-		RequestFactoryInterfaceValidator v = new RequestFactoryInterfaceValidator(
-				logger, new ClassLoaderLoader(clazz.getClassLoader()));
-		v.validateRequestContext(clazz.getName());
-		assertFalse(v.isPoisoned());
+				Logger logger = Logger.getLogger("");
+		 RequestFactoryInterfaceValidator v = new RequestFactoryInterfaceValidator(
+		 logger, new ClassLoaderLoader(clazz.getClassLoader()));
+		 v.validateRequestContext(clazz.getName());
+		 assertFalse(v.isPoisoned());
 	}
 }

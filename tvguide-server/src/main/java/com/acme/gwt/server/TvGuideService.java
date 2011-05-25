@@ -57,7 +57,7 @@ public class TvGuideService {
 		try {
 			call = viewerProvider.get();
 		} catch (Exception e) {
-			e.printStackTrace(); //todo: verify for a fit
+			e.printStackTrace();
 		}
 		return call.getFavorites();
 	}
@@ -67,7 +67,7 @@ public class TvGuideService {
 			TvViewer call = viewerProvider.get();
 			call.setFavorites(favoriteTvShows);
 		} catch (Exception e) {
-			e.printStackTrace(); //todo: verify for a fit
+			e.printStackTrace();
 		}
 	}
 
@@ -81,13 +81,13 @@ public class TvGuideService {
 								"select Channel from TvChannel Channel",
 								TvChannel.class).getResultList();
 					} catch (Exception e) {
-						e.printStackTrace(); //todo: verify for a fit
+						e.printStackTrace();
 					}
 					return null;
 				}
 			}.call();
 		} catch (Exception e) {
-			e.printStackTrace(); //todo: verify for a fit
+			e.printStackTrace();
 		}
 		return null;
 	}
