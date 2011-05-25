@@ -21,15 +21,17 @@ import com.google.inject.Singleton;
 @Singleton
 public class TvGuideLogHandlerWidget extends Composite implements HasWidgets {
 
-	private static TvGuideLogHandlerWidgetUiBinder uiBinder = GWT.create(TvGuideLogHandlerWidgetUiBinder.class);
+	private static TvGuideLogHandlerWidgetUiBinder uiBinder = GWT
+			.create(TvGuideLogHandlerWidgetUiBinder.class);
 
-	interface TvGuideLogHandlerWidgetUiBinder extends
-			UiBinder<Widget, TvGuideLogHandlerWidget> {
+	interface TvGuideLogHandlerWidgetUiBinder
+			extends
+				UiBinder<Widget, TvGuideLogHandlerWidget> {
 	}
-	
+
 	@UiField
 	VerticalPanel verticalPanel;
-	
+
 	public TvGuideLogHandlerWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
 		//attach this logger to gwt-logger as a log handler.

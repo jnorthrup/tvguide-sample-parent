@@ -30,14 +30,16 @@ import com.google.inject.Inject;
  * @author colin
  */
 public class TvGuideActivityMapper implements ActivityMapper {
-	
-	private static final Logger logger = Logger.getLogger(TvGuideActivityMapper.class.getName());
-	
+
+	private static final Logger logger = Logger
+			.getLogger(TvGuideActivityMapper.class.getName());
+
 	@Inject
 	ActivityFactory factory;
-	
+
 	public Activity getActivity(Place place) {
-		logger.log(Level.INFO, "Activity requested for place of type "+place.getClass().getName());
+		logger.log(Level.INFO, "Activity requested for place of type "
+				+ place.getClass().getName());
 		if (place instanceof WelcomePlace) {
 			return factory.createWelcomePresenter((WelcomePlace) place);
 		}

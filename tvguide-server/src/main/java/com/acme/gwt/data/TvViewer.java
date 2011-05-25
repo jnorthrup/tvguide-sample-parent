@@ -132,7 +132,7 @@ public class TvViewer implements HasVersionAndId {
 							TvViewer.class).setParameter("email", email)
 					.setParameter("digest", digest).getSingleResult();
 		} catch (Exception e) {
-			e.printStackTrace(); //todo: verify for a fit
+			e.printStackTrace();
 		} finally {
 		}
 		return singleResult;

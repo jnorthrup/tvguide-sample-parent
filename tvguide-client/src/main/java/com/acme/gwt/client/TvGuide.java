@@ -42,9 +42,10 @@ import com.google.inject.Provider;
  * @author colin
  */
 public class TvGuide implements EntryPoint {
-	
-	private static final Logger logger = Logger.getLogger(TvGuide.class.getName());
-	
+
+	private static final Logger logger = Logger.getLogger(TvGuide.class
+			.getName());
+
 	@Inject
 	AsyncProvider<TvGuideApp> appProvider;
 	@Inject
@@ -66,7 +67,7 @@ public class TvGuide implements EntryPoint {
 
 	public void onModuleLoad() {
 		Logger.getLogger("").addHandler(new DevelopmentModeLogHandler());
-		logger.log(Level.INFO,"onModuleLoad() has been invoked");
+		logger.log(Level.INFO, "onModuleLoad() has been invoked");
 		final TvGuideGinjector injector = GWT.create(TvGuideGinjector.class);
 		injector.inject(this);
 
