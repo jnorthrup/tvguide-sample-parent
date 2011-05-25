@@ -14,11 +14,11 @@ import com.google.inject.Provider;
 import com.google.inject.persist.Transactional;
 
 /**
- * Created by IntelliJ IDEA.
+
  * User: jim
  * Date: 3/11/11
  * Time: 1:28 AM
- * To change this template use File | Settings | File Templates.
+
  */
 public class TinyBootstrap {
 

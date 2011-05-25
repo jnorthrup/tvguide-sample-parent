@@ -13,11 +13,11 @@ import com.google.web.bindery.requestfactory.shared.RequestContext;
 import com.google.web.bindery.requestfactory.shared.Service;
 
 /**
- * Created by IntelliJ IDEA.
+
  * User: jim
  * Date: 3/10/11
  * Time: 9:31 PM
- * To change this template use File | Settings | File Templates.
+
  */
 @ProxyFor(value = TvViewer.class, locator = InjectingLocator.class)
 public interface TvViewerProxy extends EntityProxy {

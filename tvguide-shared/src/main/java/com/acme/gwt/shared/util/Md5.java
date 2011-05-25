@@ -4,11 +4,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Created by IntelliJ IDEA.
+
  * User: jim
  * Date: 3/11/11
  * Time: 11:14 AM
- * To change this template use File | Settings | File Templates.
+
  */
 public class Md5 {
 	public static final String HTTP = "http://";

@@ -12,11 +12,11 @@ import javax.persistence.OrderBy;
 import javax.persistence.Version;
 
 /**
- * Created by IntelliJ IDEA.
+
  * User: jim
  * Date: 3/10/11
  * Time: 7:40 PM
- * To change this template use File | Settings | File Templates.
+
  */
 @Entity
 public class TvShow implements HasVersionAndId {

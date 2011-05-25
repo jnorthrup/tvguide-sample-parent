@@ -23,11 +23,11 @@ import com.google.inject.assistedinject.Assisted;
 /**
  * this is a local channel in a lineup of channels, this is not a network in a list of Cable networks.
  * <p/>
- * Created by IntelliJ IDEA.
+
  * User: jim
  * Date: 3/10/11
  * Time: 7:40 PM
- * To change this template use File | Settings | File Templates.
+
  */
 public @Entity
 class TvChannel implements HasVersionAndId {

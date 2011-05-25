@@ -6,11 +6,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * Created by IntelliJ IDEA.
+
  * User: jim
  * Date: 3/10/11
  * Time: 7:27 PM
- * To change this template use File | Settings | File Templates.
+
  */
 @Embeddable
 public class TvAirTime {

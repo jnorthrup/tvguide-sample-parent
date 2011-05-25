@@ -20,11 +20,11 @@ import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 
 /**
- * Created by IntelliJ IDEA.
+
  * User: jim
  * Date: 3/10/11
  * Time: 7:40 PM
- * To change this template use File | Settings | File Templates.
+
  */
 public @Entity
 class TvEpisode implements HasVersionAndId {

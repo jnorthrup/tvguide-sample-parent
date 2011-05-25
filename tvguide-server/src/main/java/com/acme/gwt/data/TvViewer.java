@@ -30,11 +30,11 @@ import com.google.inject.assistedinject.AssistedInject;
  * be created by calling injector.getInstance(TvViewer.class), but must be constructed the old
  * fashioned way. A 'create profile' method or the like would be the appropriate place to do this.
  * 
- * Created by IntelliJ IDEA.
+
  * User: jim
  * Date: 3/10/11
  * Time: 8:50 PM
- * To change this template use File | Settings | File Templates.
+
  */
 @Entity
 //@NamedQuery(name = TvViewer.SIMPLE_AUTH, query = "select vp from TvViewer vp where vp.email=:email and vp.digest=:digest")

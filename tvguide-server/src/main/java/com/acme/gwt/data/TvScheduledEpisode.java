@@ -10,11 +10,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 /**
- * Created by IntelliJ IDEA.
+
  * User: jim
  * Date: 3/10/11
  * Time: 7:40 PM
- * To change this template use File | Settings | File Templates.
+
  */
 public @Entity
 class TvScheduledEpisode implements HasVersionAndId {
